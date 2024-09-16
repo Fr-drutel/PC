@@ -27,10 +27,10 @@ int main(void)
     printf("modulo : %i \n", a % b);
 
     //6
-    printf("egal? : %i \n", a == b);
+    printf("égaux ? : %i \n", a == b);
 
     //7
-    printf("supp? : %i \n", a > b);
+    printf("a > b ? : %i \n", a > b);
 
 
 
