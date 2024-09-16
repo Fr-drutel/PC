@@ -1,7 +1,6 @@
 /* Fichier: bonjour.c
 * affiche Bonjour le Monde! à l'écran 
-* auteur: François-Régis Drutel
-* Ceci est un commentaire sur plusieurs lignes
+* auteur: François-Régis Drutel et Paul Dumont
 */
 
 

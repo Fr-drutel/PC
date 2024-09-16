@@ -1,15 +1,4 @@
-/* Fichier: bonjour.c
-* affiche Bonjour le Monde! à l'écran 
-* auteur: François-Régis Drutel
-* Ceci est un commentaire sur plusieurs lignes
+/* Fichier: cercle.c
+* Calcule à la fois l'aire et le périmètre d'un cercle
+* Auteur: François-Régis Drutel et Paul Dumont
 */
-// cc yy
-
-#include <stdio.h> // headers
-
-int main(void) 
-{
-
-    printf("Bonjour le Monde!\n");
-
-}
