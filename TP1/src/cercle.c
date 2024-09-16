@@ -5,13 +5,13 @@
 // cc yy
 
 #include <stdio.h> // headers
-
+#include <math.h> // headers
 int main(void) 
 {
     float rayon = 4;
-    float air  = 3.14159 * rayon * rayon; 
+    float aire  = 3.14159 * rayon * rayon; 
+    float peri = 2 * M_PI * rayon ;
     
-
-    printf("Bonjour le Monde!\n");
-
+    printf("aire : %f \n", aire);
+    printf("peri : %f \n", peri);
 }
