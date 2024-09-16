@@ -32,7 +32,4 @@ int main(void)
     //7
     printf("supp? : %i \n", a > b);
 
-
-
-
 }
