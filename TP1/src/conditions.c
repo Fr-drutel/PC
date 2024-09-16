@@ -1,32 +1,10 @@
-/* Fichier: bonjour.c
-* Objectif : ...
+/* Fichier: conditions.c
+* Objectif : Parcourir les nombres de 1 à 1000 et calculer la somme des nombres
+* divisibles par 5 ou 7, en excluant ceux divisibles par 11. On arrête le
+* calcul si la somme dépasse 5000.
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
 #include <stdio.h> 
 
 int main(void)
-{
-    somme = []
-    for(int i = 1 ; i < 1001 ; i++){
-
-        printf("%i \n", i);
-
-        if (i / 5 || i / 7){
-            i to somme
-        }
-        if (i / 11){
-            continue;
-        }
-
-        somme = somme i + ....
-
-        if (somme > 5000){
-            printf(somme)
-            break;
-        }
-        printf(somme)
-
-
-    }
-}
