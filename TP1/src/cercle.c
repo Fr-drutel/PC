@@ -9,6 +9,9 @@
 
 int main(void) 
 {
+    float rayon = 4;
+    float air  = 3.14159 * rayon * rayon; 
+    
 
     printf("Bonjour le Monde!\n");
 
