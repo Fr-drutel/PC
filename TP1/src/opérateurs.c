@@ -32,7 +32,4 @@ int main(void)
     //7
     printf("a > b ? : %i \n", a > b);
 
-
-
-
 }
