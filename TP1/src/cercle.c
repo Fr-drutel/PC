@@ -2,10 +2,11 @@
 * Calcule à la fois l'aire et le périmètre d'un cercle
 * Auteur: François-Régis Drutel et Paul Dumont
 */
-// cc yy
 
-#include <stdio.h> // headers
-#include <math.h> // headers
+
+#include <stdio.h> 
+#include <math.h> 
+
 int main(void) 
 {
     float rayon = 4;
