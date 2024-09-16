@@ -11,6 +11,7 @@ int main(void)
     int a = 16;
     int b = 3;
 
+
     //1 
     printf("addition : %i \n", a + b);
 
@@ -21,7 +22,7 @@ int main(void)
     printf("multiplication : %i \n", a * b);
 
     //4 
-    printf("division : %i \n", a / b);
+    printf("division : %f \n", (float) a / b);
     
     //5 
     printf("modulo : %i \n", a % b);
