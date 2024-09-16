@@ -3,7 +3,7 @@
 * auteur: François-Régis Drutel
 * Ceci est un commentaire sur plusieurs lignes
 */
-
+// cc
 
 #include <stdio.h> // headers
 
