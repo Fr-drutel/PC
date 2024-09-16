@@ -80,6 +80,7 @@ Compilez le fichier *cercle.c* en utilisant GCC pour créer un exécutable nomm�
 
    L'option `-lm` est utilisée pour lier la bibliothèque mathématique standard (<math.h>).
 
+
 Exécutez le programme en utilisant la commande suivante :
 
    ```
