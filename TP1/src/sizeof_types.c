@@ -1,6 +1,6 @@
 /* Fichier: sizeof_types.c
-* affiche la taille en octets des différents types de base
-* auteur: François-Régis Drutel et Paul Dumont
+* Objectif : afficher la taille en octets des différents types de base
+* Auteurs: François-Régis Drutel et Paul Dumont
 */
 #include <stdio.h> 
 

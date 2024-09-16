@@ -1,6 +1,6 @@
 /* Fichier: bonjour.c
-* affiche Bonjour le Monde! à l'écran 
-* auteur: François-Régis Drutel et Paul Dumont
+* Objectif : affecter et afficher les valeurs des variables de différents types de base
+* Auteurs: François-Régis Drutel et Paul Dumont
 */
 
 #include <stdio.h> 
