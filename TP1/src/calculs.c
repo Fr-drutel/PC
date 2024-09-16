@@ -10,20 +10,25 @@ int main(void)
 
     int num1 = 7;
     int num2 = 3;
-    char op = "+";
+    char op = '~';
 
     switch (op) {
-        case + : num1 + num2
+        case '+' : printf("+ : %i \n", num1 + num2);   
             break;
-        case - : num1 - num2
+        case '-' : printf("- : %i \n", num1 - num2);   
             break;
-        case \n : num1 - num2
+        case '*' : printf("* : %i \n", num1 * num2);   
             break;
-        case / : num1 / num2
+        case '/' : printf("/ : %f \n", (float) num1 / num2);   
             break;
-        case % : num1 % num2
+        case '%' : printf("%% : %i \n", num1 % num2);   
             break;
-        
-}
+        case '&' : printf("& : %i \n", num1 & num2);   
+            break;
+        case '|' : printf("| : %i \n", num1 | num2);   
+            break;
+        case '~' : printf("~ : %i \n", ~num1);   
+            break;
+    }
 
 }
