@@ -1,5 +1,5 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: opérateurs.c
+* Objectif : utiliser deux variables `a` et `b`
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
@@ -27,9 +27,9 @@ int main(void)
     printf("modulo : %i \n", a % b);
 
     //6
-    printf("egal? : %i \n", a == b);
+    printf("égaux ? : %i \n", a == b);
 
     //7
-    printf("supp? : %i \n", a > b);
+    printf("a > b ? : %i \n", a > b);
 
 }
