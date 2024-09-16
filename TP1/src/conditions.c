@@ -7,26 +7,21 @@
 
 int main(void)
 {
-    somme = []
+    int somme = 0;
     for(int i = 1 ; i < 1001 ; i++){
 
-        printf("%i \n", i);
-
-        if (i / 5 || i / 7){
-            i to somme
-        }
-        if (i / 11){
+        if (i % 11 == 0){
             continue;
         }
 
-        somme = somme i + ....
+        if (i % 5 == 0 || i % 7 == 0){
+            somme += i;
+        }
 
-        if (somme > 5000){
-            printf(somme)
+        if (somme >= 5000){
             break;
         }
-        printf(somme)
-
 
     }
+    printf("%i \n",somme);
 }
