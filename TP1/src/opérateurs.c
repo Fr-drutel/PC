@@ -1,5 +1,5 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: opérateurs.c
+* Objectif : utiliser deux variables `a` et `b`
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
