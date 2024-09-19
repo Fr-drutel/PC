@@ -1,29 +1,42 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: binaire.c
+* Objectif : afficher une variable de type `int` en format binaire 
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
 #include <stdio.h> 
 
 int main(void)
-{
-    int nombre = 7;
+{    
+    int nb_en_binaire[10];
     
-    
-    // faire modulo puis division du chiffre -1 puis avec les reste 
-    // des modulo on a le code binaire a l'enveres 
-    for(;;){
 
-    int reste = nombre % 2; 
+    for(int nombre = 6; nombre > 3;){
 
-    if (reste == 1){
-        nombre--;
+        int reste = nombre % 2; 
+        
+        for(int curseur = 0; curseur < 10; curseur++)
+                                
+            if (reste == 1){
+                nb_en_binaire[curseur] = 1;
+                nombre--;
+        }
+            
+            else{
+                nb_en_binaire[curseur] = 0;
+        }
+
+        nombre /= 2;
+
     }
 
-    // stocker le reste
 
-    nombre /= 2;
+    
 
+    printf("Les éléments du tableau sont : ");
+    for (int curseur = 0; curseur < 10; curseur++) {
+        printf("%i ", nb_en_binaire[curseur]);
     }
+    
+    printf("\n");
 
 }
