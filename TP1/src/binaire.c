@@ -7,33 +7,35 @@
 
 int main(void)
 {    
-    int nb_en_binaire[10];
+    int nb_en_binaire[32];
+    int index = 0;
+    int nombre = 1024;
+
+    if (nombre == 0){
+        printf("En binaire : 0\n");
+        return 0;
+        }
     
 
-    for(int nombre = 6; nombre > 3;){
+    for(; nombre > 0; nombre /= 2){
 
-        int reste = nombre % 2; 
-        
-        for(int curseur = 0; curseur < 10; curseur++)
+        int reste = nombre % 2;       
                                 
-            if (reste == 1){
-                nb_en_binaire[curseur] = 1;
-                nombre--;
+        if (reste == 1){
+            nb_en_binaire[index] = 1;
+            index++;
+            nombre--;
         }
             
-            else{
-                nb_en_binaire[curseur] = 0;
+        else{
+            nb_en_binaire[index] = 0;
+            index++;
         }
-
-        nombre /= 2;
 
     }
 
-
-    
-
-    printf("Les éléments du tableau sont : ");
-    for (int curseur = 0; curseur < 10; curseur++) {
+    printf("En binaire : ");
+    for (int curseur = index - 1; curseur >= 0; curseur--) {
         printf("%i ", nb_en_binaire[curseur]);
     }
     
