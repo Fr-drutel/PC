@@ -9,8 +9,8 @@ int main(void)
 {
 
     int num1 = 7;
-    int num2 = 3;
-    char op = '~';
+    int num2 = 2;
+    char op = '%';
 
     switch (op) {
         case '+' : printf("+ : %i \n", num1 + num2);   
