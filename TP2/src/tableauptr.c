@@ -1,4 +1,4 @@
-/* Fichier: bonjour.c
+/* Fichier: tableauptr.c
 * Objectif : afficher Bonjour le Monde! à l'écran 
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
