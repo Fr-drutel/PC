@@ -13,45 +13,27 @@ struct couleur{
     int bleu;
     int alpha;
 };
-struct couleur couleur[10];
 
-couleur[0].rouge = 0xef;
-couleur[0].vert = 0xef;
-couleur[0].bleu = 0xef;
-couleur[0].alpha = 0xef;
+struct couleur couleur[10] = {
+        {0xef, 0x78, 0x12, 0xff},
+        {0x2c, 0xc8, 0x64, 0xff},
+        {0xff, 0x00, 0x00, 0xff}, 
+        {0x00, 0xff, 0x00, 0xff},
+        {0x00, 0x00, 0xff, 0xff},
+        {0xff, 0xff, 0x00, 0xff}, 
+        {0x00, 0xff, 0xff, 0xff}, 
+        {0xff, 0x00, 0xff, 0xff}, 
+        {0x80, 0x80, 0x80, 0xff}, 
+        {0x00, 0x00, 0x00, 0xff}
+};
 
-couleur[1].rouge = 0xef;
-couleur[1].vert = 0xef;
-couleur[1].bleu = 0xef;
-couleur[1].alpha = 0xef;
 
-couleur[2].rouge = 0xef;
-couleur[2].vert = 0xef;
-couleur[2].bleu = 0xef;
-couleur[2].alpha = 0xef;
-
-couleur[3].rouge = 0xef;
-couleur[3].vert = 0xef;
-couleur[3].bleu = 0xef;
-couleur[3].alpha = 0xef;
-
-couleur[0].rouge = 0xef;
-couleur[0].vert = 0xef;
-couleur[0].bleu = 0xef;
-couleur[0].alpha = 0xef;
-
-couleur[0].rouge = 0xef;
-couleur[0].vert = 0xef;
-couleur[0].bleu = 0xef;
-couleur[0].alpha = 0xef;
-
-couleur[0].rouge = 0xef;
-couleur[0].vert = 0xef;
-couleur[0].bleu = 0xef;
-couleur[0].alpha = 0xef;
-
-couleur[0].rouge = 0xef;
-couleur[0].vert = 0xef;
-couleur[0].bleu = 0xef;
-couleur[0].alpha = 0xef;
+for(int i = 0; i < 10; i++){
+    printf("couleur %i\n", i);
+    printf("Rouge : %i\n",couleur[i].rouge);
+    printf("Vert : %i\n",couleur[i].vert);
+    printf("Bleu : %i\n",couleur[i].bleu);
+    printf("Alpha %i\n",couleur[i].alpha);
+    printf("\n");
+}
 }
