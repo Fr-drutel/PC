@@ -9,8 +9,8 @@ int main(void)
 {
     char nom[5][25] = {"Paul Dumont","Raphaël Berger","Olivier Mermet","Romain Thibault","Adonis Robin"};
     char adresse[5][25] = {"Meximieux","Grasse","Lyon","Villeurbanne","Villeurbanne"};
-    float note_prog_c[5] = {20.0,19,17,16,18};
-    float note_sys_exploit[5] = {18,19,19,17,20};
+    float note_prog_c[5] = {20.0,19.7,17.4,16.2,18.6};
+    float note_sys_exploit[5] = {18.8,19.4,19.6,17.1,20.0};
     
     for(int i = 0; i < 5; i++){
         printf("Etudiant : %s\n", nom[i]);
