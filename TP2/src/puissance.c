@@ -7,10 +7,16 @@
 
 int main(void)
 {
-    int a = 2;
-    int b = 3;
+    int a = 10;
+    int b = 5;
 
-    int result = 
+
+    int result = a;
+    while(b > 1){
+        result = result * a;
+        b--;
+    }
+    printf("%i\n", result);
 
 
 }
