@@ -51,6 +51,9 @@ etudiant[4].note.notes_en_C, 17,3;
 etudiant[4].note.notes_en_S, 12,9;
 
 for(int i = 0; i < 5; i++){
+    printf("mon nom : %s\n",etudiant[i].nom);
+    printf("%s\n",etudiant[i].prenom);
+    printf("%s\n",etudiant[i].adresse);
     printf("%s\n",etudiant[i].nom);
 }
 
