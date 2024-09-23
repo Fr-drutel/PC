@@ -1,5 +1,5 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: couleurs.c
+* Objectif : représenter des couleurs au format RGBA (rouge, vert, bleu, alpha)
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
