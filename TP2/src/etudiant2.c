@@ -19,6 +19,11 @@ struct etudiant{
 };
 struct etudiant etudiant[5];
 
+strcpy(etudiant[0].nom, "Pierre");
+strcpy(etudiant[0].prenom, "Dupont");
+strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
+etudiant[0].note.notes_en_C, 17,3;
+etudiant[0].note.notes_en_S, 12,9;
 
 strcpy(etudiant[0].nom, "Pierre");
 strcpy(etudiant[0].prenom, "Dupont");
