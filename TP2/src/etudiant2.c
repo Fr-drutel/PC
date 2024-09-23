@@ -26,29 +26,29 @@ strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
 etudiant[0].note.notes_en_C, 17,3;
 etudiant[0].note.notes_en_S, 12,9;
 
-strcpy(etudiant[0].nom, "dezd");
-strcpy(etudiant[0].prenom, "Dupont");
-strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
-etudiant[0].note.notes_en_C, 17,3;
-etudiant[0].note.notes_en_S, 12,9;
+strcpy(etudiant[1].nom, "dezd");
+strcpy(etudiant[1].prenom, "Dupont");
+strcpy(etudiant[1].adresse, "Boulevard du 11 novembre 1918");
+etudiant[1].note.notes_en_C, 17,3;
+etudiant[1].note.notes_en_S, 12,9;
 
-strcpy(etudiant[0].nom, "zefef");
-strcpy(etudiant[0].prenom, "Dupont");
-strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
-etudiant[0].note.notes_en_C, 17,3;
-etudiant[0].note.notes_en_S, 12,9;
+strcpy(etudiant[2].nom, "zefef");
+strcpy(etudiant[2].prenom, "Dupont");
+strcpy(etudiant[2].adresse, "Boulevard du 11 novembre 1918");
+etudiant[2].note.notes_en_C, 17,3;
+etudiant[2].note.notes_en_S, 12,9;
 
-strcpy(etudiant[0].nom, "Pierre");
-strcpy(etudiant[0].prenom, "Dupont");
-strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
-etudiant[0].note.notes_en_C, 17,3;
-etudiant[0].note.notes_en_S, 12,9;
+strcpy(etudiant[3].nom, "Pierre");
+strcpy(etudiant[3].prenom, "Dupont");
+strcpy(etudiant[3].adresse, "Boulevard du 11 novembre 1918");
+etudiant[3].note.notes_en_C, 17,3;
+etudiant[3].note.notes_en_S, 12,9;
 
-strcpy(etudiant[0].nom, "fzefzefezf");
-strcpy(etudiant[0].prenom, "Dupont");
-strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
-etudiant[0].note.notes_en_C, 17,3;
-etudiant[0].note.notes_en_S, 12,9;
+strcpy(etudiant[4].nom, "fzefzefezf");
+strcpy(etudiant[4].prenom, "Dupont");
+strcpy(etudiant[4].adresse, "Boulevard du 11 novembre 1918");
+etudiant[4].note.notes_en_C, 17,3;
+etudiant[4].note.notes_en_S, 12,9;
 
 for(int i = 0; i < 5; i++){
     printf("%s\n",etudiant[i].nom);
