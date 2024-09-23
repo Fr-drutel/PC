@@ -50,6 +50,14 @@ strcpy(etudiant[0].adresse, "Villeurbanne");
 etudiant[0].note.notes_en_C, 18.6;
 etudiant[0].note.notes_en_S, 20.0;
 
+for(int i = 0; i < 5; i++){
+    printf("mon nom : %s\n",etudiant[i].nom);
+    printf("%s\n",etudiant[i].prenom);
+    printf("%s\n",etudiant[i].adresse);
+    printf("%s\n",etudiant[i].nom);
+}
+
+
 }
 
 
