@@ -4,6 +4,7 @@
 */
 
 #include <stdio.h> 
+#include <string.h>
 
 int main(void)
 {
@@ -25,7 +26,13 @@ strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
 etudiant[0].note.notes_en_C, 17,3;
 etudiant[0].note.notes_en_S, 12,9;
 
-strcpy(etudiant[0].nom, "Pierre");
+strcpy(etudiant[0].nom, "dezd");
+strcpy(etudiant[0].prenom, "Dupont");
+strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
+etudiant[0].note.notes_en_C, 17,3;
+etudiant[0].note.notes_en_S, 12,9;
+
+strcpy(etudiant[0].nom, "zefef");
 strcpy(etudiant[0].prenom, "Dupont");
 strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
 etudiant[0].note.notes_en_C, 17,3;
@@ -37,17 +44,16 @@ strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
 etudiant[0].note.notes_en_C, 17,3;
 etudiant[0].note.notes_en_S, 12,9;
 
-strcpy(etudiant[0].nom, "Pierre");
+strcpy(etudiant[0].nom, "fzefzefezf");
 strcpy(etudiant[0].prenom, "Dupont");
 strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
 etudiant[0].note.notes_en_C, 17,3;
 etudiant[0].note.notes_en_S, 12,9;
 
-strcpy(etudiant[0].nom, "Pierre");
-strcpy(etudiant[0].prenom, "Dupont");
-strcpy(etudiant[0].adresse, "Boulevard du 11 novembre 1918");
-etudiant[0].note.notes_en_C, 17,3;
-etudiant[0].note.notes_en_S, 12,9;
+for(int i = 0; i < 5; i++){
+    printf("%s\n",etudiant[i].nom);
+}
+
 
 
 
