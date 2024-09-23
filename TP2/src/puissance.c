@@ -1,5 +1,5 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: puissance.c
+* Objectif : afficher la valeur de *a* élevé à la puissance *b*
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
@@ -17,6 +17,4 @@ int main(void)
         b--;
     }
     printf("%i\n", result);
-
-
 }
