@@ -8,7 +8,7 @@
 
 int main(void)
 {
-int d = 1048568;
+int d = 18568;
 int masque = 524296;  
 
 int result = d & masque;
