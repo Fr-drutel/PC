@@ -1,5 +1,6 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: ptrvariables.c
+* Objectif : affecter et afficher les valeurs des variables de différents types 
+* de base en utilisant leurs adresses avec des pointeurs
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
