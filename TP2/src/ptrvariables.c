@@ -9,40 +9,73 @@ int main(void)
 {
     char char_var = 'a';
     char *char_adress = &char_var; 
-    printf("adresse de char : %p, valeur de char %c \n",char_adress, char_var);
+    printf("adresse de char : %p, valeur de char : %c \n", char_adress, char_var);
     *char_adress = 'b';
-    printf("adresse de char : %p, valeur de char %c \n",char_adress, char_var);
-
-    unsigned char my_uchar_var = 234;
-    // printf("my_uchar_var : %hhu \n", my_uchar_var);
+    printf("adresse de char : %p, valeur de char : %c \n", char_adress, char_var);
 
     short my_short_var = -12;
-    // printf("my_short_var : %hd \n", my_short_var);
+    short *my_short_var_adress = &my_short_var; 
+    printf("adresse de short : %p, valeur de short : %d \n", my_short_var_adress, my_short_var);
+    *my_short_var_adress = 100;  // Modification avec une valeur entière
+    printf("adresse de short : %p, valeur de short : %d \n", my_short_var_adress, my_short_var);
+
     unsigned short my_ushort_var = 65535;
-    // printf("my_ushort_var : %hu \n", my_ushort_var);
+    unsigned short *my_ushort_var_adress = &my_ushort_var; 
+    printf("adresse de unsigned short : %p, valeur de unsigned short : %hu \n", my_ushort_var_adress, my_ushort_var);
+    *my_ushort_var_adress = 12345;  // Modification
+    printf("adresse de unsigned short : %p, valeur de unsigned short : %hu \n", my_ushort_var_adress, my_ushort_var);
 
     int my_int_var = 12;
-    // printf("my_int_var : %i \n", my_int_var);
+    int *my_int_var_adress = &my_int_var;
+    printf("adresse de int : %p, valeur de int : %d \n", my_int_var_adress, my_int_var);
+    *my_int_var_adress = 42;  // Modification
+    printf("adresse de int : %p, valeur de int : %d \n", my_int_var_adress, my_int_var);
+
     unsigned int my_uint_var = 3456;
-    // printf("my_uint_var : %u \n", my_uint_var);
+    unsigned int *my_uint_var_adress = &my_uint_var;
+    printf("adresse de unsigned int : %p, valeur de unsigned int : %u \n", my_uint_var_adress, my_uint_var);
+    *my_uint_var_adress = 9876;  // Modification
+    printf("adresse de unsigned int : %p, valeur de unsigned int : %u \n", my_uint_var_adress, my_uint_var);
 
     long my_long_var = -1234553L;
-    // printf("my_long_var : %ld \n", my_long_var);
+    long *my_long_var_adress = &my_long_var;
+    printf("adresse de long : %p, valeur de long : %ld \n", my_long_var_adress, my_long_var);
+    *my_long_var_adress = 7654321L;  // Modification
+    printf("adresse de long : %p, valeur de long : %ld \n", my_long_var_adress, my_long_var);
+
     unsigned long my_ulong_var = 234556UL;
-    // printf("my_ulong_var : %lu \n", my_ulong_var);
+    unsigned long *my_ulong_var_adress = &my_ulong_var;
+    printf("adresse de unsigned long : %p, valeur de unsigned long : %lu \n", my_ulong_var_adress, my_ulong_var);
+    *my_ulong_var_adress = 9876543UL;  // Modification
+    printf("adresse de unsigned long : %p, valeur de unsigned long : %lu \n", my_ulong_var_adress, my_ulong_var);
 
     long long my_llong_var = 1123345LL;
-    // printf("my_llong_var : %lld \n", my_llong_var);
+    long long *my_llong_var_adress = &my_llong_var;
+    printf("adresse de long long : %p, valeur de long long : %lld \n", my_llong_var_adress, my_llong_var);
+    *my_llong_var_adress = 123456789LL;  // Modification
+    printf("adresse de long long : %p, valeur de long long : %lld \n", my_llong_var_adress, my_llong_var);
+
     unsigned long long my_ullong_var = 1234567ULL;
-    // printf("my_ullong_var : %llu \n", my_ullong_var);
+    unsigned long long *my_ullong_var_adress = &my_ullong_var;
+    printf("adresse de unsigned long long : %p, valeur de unsigned long long : %llu \n", my_ullong_var_adress, my_ullong_var);
+    *my_ullong_var_adress = 987654321ULL;  // Modification
+    printf("adresse de unsigned long long : %p, valeur de unsigned long long : %llu \n", my_ullong_var_adress, my_ullong_var);
 
     float my_float_var = 3.14;
-    // printf("my_float_var : %f \n", my_float_var);
+    float *my_float_var_adress = &my_float_var;
+    printf("adresse de float : %p, valeur de float : %f \n", my_float_var_adress, my_float_var);
+    *my_float_var_adress = 6.28;  // Modification
+    printf("adresse de float : %p, valeur de float : %f \n", my_float_var_adress, my_float_var);
+
     double my_double_var = 3.14E-12;
-    // printf("my_double_var : %G \n", my_double_var);
+    double *my_double_var_adress = &my_double_var;
+    printf("adresse de double : %p, valeur de double : %G \n", my_double_var_adress, my_double_var);
+    *my_double_var_adress = 6.28E-12;  // Modification
+    printf("adresse de double : %p, valeur de double : %G \n", my_double_var_adress, my_double_var);
+
     long double my_long_double_var = 3.14E-22;
-    // printf("my_long_double_var : %LG \n", my_long_double_var);
-
-
-
+    long double *my_long_double_var_adress = &my_long_double_var;
+    printf("adresse de long double : %p, valeur de long double : %LG \n", my_long_double_var_adress, my_long_double_var);
+    *my_long_double_var_adress = 6.28E-22;  // Modification
+    printf("adresse de long double : %p, valeur de long double : %LG \n", my_long_double_var_adress, my_long_double_var);
 }
