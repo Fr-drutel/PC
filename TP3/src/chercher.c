@@ -15,7 +15,7 @@ int tab_int[100];
 int *ptr = &tab_int[0];
 
 printf("tableau non trié :\n");
-for(int i = 0; i <101;i++){
+for(int i = 0; i <100; i++){
     *ptr = rand() % 100 + 1;
     printf("%i ",*ptr);
     ptr++;
