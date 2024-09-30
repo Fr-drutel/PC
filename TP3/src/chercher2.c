@@ -9,5 +9,5 @@
 int main(void)
 {
 
-
+faire un tableau de pouinter avec chaque case du tableau qui pointe vers une phrase
 }
