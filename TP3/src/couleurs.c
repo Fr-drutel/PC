@@ -9,4 +9,5 @@ int main(void)
 {
 
 
+faire tablau de pointer (chaqun poite ver la phrase )
 }
