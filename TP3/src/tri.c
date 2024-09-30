@@ -8,8 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main(void)
-{
+int main(void){
 srand(time(0));
 int tab_int[100];
 int *ptr = &tab_int[0];
@@ -21,21 +20,21 @@ for(int i = 0; i <100;i++){
     ptr++;
 }
 
-int min = 101;
-printf("tableau trié par ordre croissant :\n");
-    for (int i = 1; i < 100; i++) {
-        int key = tab_int[i];
-        int j = i - 1;
-
-        while (j >= 0 && tab_int[j] > key) {
-            tab_int[j + 1] = tab_int[j];
-            j--;
-        }
-        tab_int[j + 1] = key;
+    for(int i = 100; i > 1 ;i--){
+        for (int j = 0; j < i - 1; j++)
+        {
+            if (tab_int[j+1] < tab_int[j]){
+                int temp = tab_int[j];
+                tab_int[j] = tab_int[j+1];
+                tab_int[j+1] = temp;
+            }
+        } 
     }
 
-printf("\n\nTableau trié par ordre croissant :\n");
-for (int i = 0; i < 100; i++) {
-    printf("%i ", tab_int[i]);
-}
+    printf("\n\nTableau trié :\n");
+    for(int i = 0; i < 100; i++){
+        printf("%d ", tab_int[i]);
+    }
+    printf("\n");
+
 }
