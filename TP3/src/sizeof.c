@@ -1,5 +1,5 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: sizeof.c
+* Objectif : déterminer la taille en octets de différents types de données.
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
