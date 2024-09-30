@@ -21,16 +21,16 @@ for (int i = 0; i < 100; i++) {
 }
 
 
-for (int i = 1; i < 100; i++) {
-    int key = tab_int[i];
-    int j = i - 1;
-
-    while (j >= 0 && tab_int[j] > key) {
-        tab_int[j + 1] = tab_int[j];
-        j--;
+    for(int i = 100; i > 1 ;i--){
+        for (int j = 0; j < i - 1; j++)
+        {
+            if (tab_int[j+1] < tab_int[j]){
+                int temp = tab_int[j];
+                tab_int[j] = tab_int[j+1];
+                tab_int[j+1] = temp;
+            }
+        }
     }
-    tab_int[j + 1] = key;
-}
 
 
 printf("\n\nTableau trié par ordre croissant :\n");

@@ -1,5 +1,6 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: couleur_compteur.c
+* Objectif : stocker 100 couleurs dans un tableau et 
+* afficher les couleurs distinctes avec leur nombre d'occurrences dans le tableau
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
