@@ -8,44 +8,57 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main(void)
-{
-struct couleur{
-    int rouge;
-    int vert;
-    int bleu;
-    int alpha;
-};
+int main(void) {
+    struct couleur {
+        int rouge;
+        int vert;
+        int bleu;
+        int alpha;
+    };
 
-struct couleur couleurs[100];
-Srand(time(0)); 
+    struct couleur couleurs[100];
+    struct couleur couleurs_distinctes[100];
+    int occurrences[100] = {0}; 
+    int nb_distinct = 0; 
+    srand(time(0));
 
-for(int i = 0; i<100; i++){
-    couleurs[i].rouge = rand() % 256;
-    couleurs[i].vert = rand() % 256;
-    couleurs[i].bleu = rand() % 256;
-    couleurs[i].alpha = rand() % 256;
-}
+    // on initiale avec rand() %2 et pas rand() %256 car sinon toutes les couleurs sont unique 
+    for (int i = 0; i < 100; i++) {
+        couleurs[i].rouge = rand() %2;
+        couleurs[i].vert = rand() % 2;
+        couleurs[i].bleu = rand() % 2;
+        couleurs[i].alpha = rand() % 2;
+    }
 
-// // Compter les couleurs distinctes
-//     struct couleur couleurs_distinctes[TOTAL_COULEURS];
-//     int occurrences[TOTAL_COULEURS] = {0}; // Compteur d'occurrences
-//     int distinct_count = 0; // Compteur de couleurs distinctes
-
-//     for (int i = 0; i < TOTAL_COULEURS; i++) {
-//         struct couleur couleur_actuelle = couleurs[i];
-        
-//         // Vérifier si la couleur actuelle est déjà présente dans le tableau des couleurs distinctes
-//         int deja_present = 0;
-//         for (int j = 0; j < distinct_count; j++) {
-//             if (couleurs_distinctes[j].rouge == couleur_actuelle.rouge &&
-//                 couleurs_distinctes[j].vert == couleur_actuelle.vert &&
-//                 couleurs_distinctes[j].bleu == couleur_actuelle.bleu) {
-//                 occurrences[j]++; // Incrémenter le compteur pour cette couleur
-//                 deja_present = 1;  // Indiquer que la couleur est déjà présente
-//                 break; // Sortir de la boucle
-//             }
-//         }
+    for (int i = 0; i < 100; i++) {
+        int deja_present = 0;
+        for (int j = 0; j < nb_distinct; j++) {
+            if (couleurs_distinctes[j].rouge == couleurs[i].rouge &&
+                couleurs_distinctes[j].vert == couleurs[i].vert &&
+                couleurs_distinctes[j].bleu == couleurs[i].bleu &&
+                couleurs_distinctes[j].alpha == couleurs[i].alpha) {
+                occurrences[j]++; 
+                deja_present = 1;  
+                break; 
+            }
+        }
 
 
+        if (!deja_present) {
+            couleurs_distinctes[nb_distinct] = couleurs[i]; 
+            occurrences[nb_distinct] = 1; 
+            nb_distinct++; 
+        }
+    }
+
+    for (int i = 0; i < nb_distinct; i++) {
+        printf("Couleur: ff 0x%02x 0x%02x 0x%02x 0x%02x : %d\n",
+               couleurs_distinctes[i].rouge,
+               couleurs_distinctes[i].vert,
+               couleurs_distinctes[i].bleu,
+               couleurs_distinctes[i].alpha,
+               occurrences[i]);
+    }
+
+    return 0;
 }
