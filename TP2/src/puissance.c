@@ -7,14 +7,17 @@
 
 int main(void)
 {
-    int a = 10;
-    int b = 5;
-
-
+    int a = 2;
+    int b = 3;
     int result = a;
-    while(b > 1){
-        result = result * a;
-        b--;
+
+    // Boucle while qui multiplie 'result' par 'a' jusqu'à ce que 'b' soit plus grand que 1
+    while (b > 1) {
+        result = result * a;  
+        b--;  
     }
+
+    // Affiche la valeur finale 
     printf("%i\n", result);
+
 }

@@ -1,5 +1,5 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: etudiant2.c
+* Objectif : gère les données de 5 étudiant.e.s en utilisant des structures (`struct`)
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
@@ -9,17 +9,21 @@
 int main(void)
 {
 
-struct etudiant{
+struct etudiant {
     char nom[30];
     char prenom[30];
     char adresse[30];
-    struct note{
+    struct note {
         float notes_en_C;
         float notes_en_S;
-    } note;
+    } note;  
+
 };
+
+// Déclaration d'un tableau de 5 étudiants
 struct etudiant etudiant[5];
 
+// Initialisation des données pour chaque étudiant
 strcpy(etudiant[0].nom, "Paul");
 strcpy(etudiant[0].prenom, "Dumont");
 strcpy(etudiant[0].adresse, "Meximieux");
@@ -50,15 +54,13 @@ strcpy(etudiant[4].adresse, "Villeurbanne");
 etudiant[4].note.notes_en_C = 18.6;
 etudiant[4].note.notes_en_S = 20.0;
 
-for(int i = 0; i < 5; i++){
-    printf("mon nom est : %s\n",etudiant[i].nom);
-    printf("mon prenom est : %s\n",etudiant[i].prenom);
-    printf("mon adresse est : %s\n",etudiant[i].adresse);
-    printf("ma note de C %.1f\n",etudiant[i].note.notes_en_C);
-    printf("ma note de S %.1f\n",etudiant[i].note.notes_en_S);
+// Affichage des informations de chaque étudiant 
+for(int i = 0; i < 5; i++) {
+    printf("mon nom est : %s\n", etudiant[i].nom);
+    printf("mon prenom est : %s\n", etudiant[i].prenom);
+    printf("mon adresse est : %s\n", etudiant[i].adresse);
+    printf("ma note de C %.1f\n", etudiant[i].note.notes_en_C);
+    printf("ma note de S %.1f\n", etudiant[i].note.notes_en_S);
     printf("\n");
 }
-
 }
-
-

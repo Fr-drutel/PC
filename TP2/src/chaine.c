@@ -3,64 +3,66 @@
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
-#include <stdio.h> 
+#include <stdio.h>
 
-int main(void)
-{
+#include <stdio.h>
 
+int main(void) {
 
-
-    // Q1 
-    char chaine_caractères_1[] = "Hello";
-
-    char c = ' ';
+    // Q1
+    char chaine_caracteres_1[] = "Hello";
     int i = 0;
-    for(;c != '\0';){
-        c = chaine_caractères_1[i];
+
+    // Calculer la longueur de la première chaîne
+    while (chaine_caracteres_1[i] != '\0') {
         i++;
     }
-    printf("Nombre de caractères de la chaine 1 : %i\n",i-1);
+    printf("Nombre de caractères de la chaîne 1 : %i\n", i); 
 
     // Q2
-    char chaine_caractères_2[] = "";
-    
-    printf("text copier 'dans chaine_caractères_3' : ");
+    char chaine_caracteres_2[i + 1]; // +1 pour le caractère nul
     int i2 = 0;
-    char c2 = ' ';
-    for(;c2 != '\0';){
-        c2 = chaine_caractères_1[i2];
-        chaine_caractères_2[i2] = c2;
+
+    // Copier la première chaîne dans la deuxième
+    while (chaine_caracteres_1[i2] != '\0') {
+        chaine_caracteres_2[i2] = chaine_caracteres_1[i2];
         i2++;
-        printf("%c",chaine_caractères_2[i2]);
     }
-    printf("\n");
+    chaine_caracteres_2[i2] = '\0'; 
+    printf("Texte copié 'dans chaine_caracteres_2' : %s\n", chaine_caracteres_2); 
 
     // Q3
-    char chaine_caractères_3[] = "Hello";
-    char chaine_caractères_4[] = "World!";
-    char chaine_caractères_5[] = "";
-    
-    int longueur_chaine_1 = i-1;
+    char chaine_caracteres_4[] = "World!";
+    int longueur_chaine_4 = 0;
 
-    char c3 = ' ';
+    // Calculer la longueur de la chaîne 4
+    while (chaine_caracteres_4[longueur_chaine_4] != '\0') {
+        longueur_chaine_4++;
+    }
+
+    // mémoire pour la chaîne concaténée
+    char chaine_caracteres_5[i + longueur_chaine_4 + 2]; // +2 pour le caractère espace et le caractère nul
     int i3 = 0;
-    for(;c3 != '\0';){
-        c3 = chaine_caractères_3[i3];
-        chaine_caractères_5[i3] = c3;
-        printf("%c",chaine_caractères_5[i3]);
+
+    // Copier la première chaîne dans la chaîne 5
+    while (chaine_caracteres_1[i3] != '\0') {
+        chaine_caracteres_5[i3] = chaine_caracteres_1[i3];
         i3++;
     }
 
-    char c4 = ' ';
-    int i4 = longueur_chaine_1 + 1;
-    int i5 = 0;
-    for(;c4 != '\0';){
-        c4 = chaine_caractères_4[i5];
-        chaine_caractères_5[i4] = c4;
-        i4++;
-        i5++;
-        printf("%c",chaine_caractères_5[i4]);
-    }
+    //  espace avant la deuxième chaîne
+    chaine_caracteres_5[i3++] = ' ';
 
-    printf("\n");
+    // Concaténation de la deuxième chaîne
+    int i4 = 0;
+    while (chaine_caracteres_4[i4] != '\0') {
+        chaine_caracteres_5[i3] = chaine_caracteres_4[i4];
+        i3++;
+        i4++;
+    }
+    chaine_caracteres_5[i3] = '\0'; 
+
+    printf("Chaîne concaténée : %s\n", chaine_caracteres_5); 
+
+    return 0;
 }
