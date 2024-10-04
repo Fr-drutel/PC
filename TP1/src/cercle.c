@@ -13,6 +13,7 @@ int main(void)
     float aire  = 3.14159 * rayon * rayon; 
     float peri = 2 * M_PI * rayon ;
     
+    // affichage
     printf("aire : %f \n", aire);
     printf("peri : %f \n", peri);
 }
