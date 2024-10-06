@@ -1,2 +1,2 @@
-1. 
-2. 
+1. DUMONT Paul
+2. DRUTEL François-Régis

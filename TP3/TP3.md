@@ -5,7 +5,7 @@ Année: 2024-2025
 
 ## Objectifs
 
--   Comprendre les les pointeurs et les structures.
+-   Comprendre les pointeurs et les structures.
 -   Comprendre l'espace occupé par les différentes variables en mémoire en utilisant `sizeof`
 
 ## Exercice 3.1 [★]

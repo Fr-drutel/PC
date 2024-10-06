@@ -8,33 +8,43 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main(void)
-{
-srand(time(0));
-int tab_int[100];
-int *ptr = &tab_int[0];
+int main(void) {
+    int tab_int[100]; 
+    int *ptr = &tab_int[0]; // Initialisation du pointeur
+    srand(time(0)); 
 
-for(int i = 0; i <100;i++){
-    *ptr = rand() % 1000 + 1;
-    printf("%i ",*ptr);
-    ptr++;
-}
+    printf("[");
+    for(int i = 0; i < 100; i++){
 
-int max = 0;
-int min = 1000;
+        *ptr = rand() % 1000 + 1; // entier random stocké dans l'adresse pointée 
 
-ptr = tab_int;
+        if (i == 99){
+            printf("%i", *ptr); 
+        } else {
+            printf("%i, ", *ptr); 
+        }
 
-for(int i = 0; i <100;i++){
-    if(*ptr > max){
-        max = *ptr;
+        ptr++; 
+    }
+    printf("]");
+
+    int max = 0; 
+    int min = 1000; 
+
+    ptr = tab_int; // Réinitialisation du pointeur 
+
+    // Parcours du tableau pour trouver le maximum et le minimum
+    for(int i = 0; i < 100; i++){
+        if(*ptr > max){
+            max = *ptr; // Si la valeur pointée est supérieure à max, on l'assigne à max
+        }
+
+        if(*ptr < min){
+            min = *ptr; // Si la valeur pointée est inférieure à min, on l'assigne à min
+        }   
+        ptr++; 
     }
 
-    if(*ptr < min){
-        min = *ptr;        
-    }   
-    ptr++;
-}
-printf("\nLe numéro le plus grand est : %i ",max);
-printf("\nLe numéro le plus petit est : %i \n",min);
+    printf("\nLe numéro le plus grand est : %i ", max);
+    printf("\nLe numéro le plus petit est : %i \n", min);
 }
