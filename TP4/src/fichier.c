@@ -46,3 +46,15 @@ int lire_fichier(char* 'nom_de_fichier');
 
 
 int ecrire_dans_fichier(char* 'nom_de_fichier',char* 'message');
+/* Fichier: bonjour.c
+* Objectif : afficher Bonjour le Monde! à l'écran 
+* Auteurs: François-Régis Drutel et Paul Dumont
+*/
+
+#include <stdio.h> 
+
+int main(void)
+{
+
+
+}
