@@ -9,7 +9,7 @@
 * https://www.w3schools.com/c/ref_stdlib_rand.php
 
 # Difficulté
-*
+* Moyen
 
 # Commentaires
 * 
