@@ -1,3 +1,8 @@
+/* Fichier: fichier.c
+* Objectif : créer un programme qui gère les fichiers en utilisant 
+* les fonctions lire_fichier et ecrire_dans_fichier
+* Auteurs: François-Régis Drutel et Paul Dumont
+*/
 
 #include <stdio.h>
 #include <sys/types.h>
