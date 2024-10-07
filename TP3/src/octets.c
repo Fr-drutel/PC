@@ -19,7 +19,7 @@ int main(void)
     // On crée un pointeur vers les octets de val_short
     char *ptr_short = (char*)&val_short;
     printf("Octets de short :\n");
-    for(int i = 0; i < sizeof(val_short); i++) {
+    for(int i = 0; i < (int)sizeof(val_short); i++) {
         printf("%02X ", ptr_short[i]); // On affiche les octets en hexadécimal
     }
     printf("\n \n");
@@ -27,7 +27,7 @@ int main(void)
 
     char *ptr_int = (char*)&val_int;
     printf("Octets de int :\n");
-    for(int i = 0; i <sizeof(val_int); i++) {
+    for(int i = 0; i < (int)sizeof(val_int); i++) {
         printf("%02X ", ptr_int[i]); 
     }
     printf("\n \n");
@@ -35,7 +35,7 @@ int main(void)
 
     char *ptr_long_int = (char*)&val_long_int;
     printf("Octets de long int :\n");
-    for(int i = 0; i <sizeof(val_long_int); i++) {
+    for(int i = 0; i < (int)sizeof(val_long_int); i++) {
         printf("%02X ", ptr_long_int[i]); 
     }
     printf("\n \n");
@@ -43,7 +43,7 @@ int main(void)
 
     char *ptr_float = (char*)&val_float;
     printf("Octets de float :\n");
-    for(int i = 0; i <sizeof(val_float); i++) {
+    for(int i = 0; i < (int)sizeof(val_float); i++) {
         printf("%02X ", (unsigned char)ptr_float[i]); 
     }
     printf("\n \n");
@@ -51,7 +51,7 @@ int main(void)
 
     char *ptr_double = (char*)&val_double;
     printf("Octets de int :\n");
-    for(int i = 0; i <sizeof(val_double); i++) {
+    for(int i = 0; i < (int)sizeof(val_double); i++) {
         printf("%02X ", ptr_double[i]); 
     }
     printf("\n \n");
@@ -59,7 +59,7 @@ int main(void)
 
     char *ptr_long_double = (char*)&val_long_double;
     printf("Octets de int :\n");
-    for(int i = 0; i <sizeof(val_long_double); i++) {
+    for(int i = 0; i < (int)sizeof(val_long_double); i++) {
         printf("%02X ", ptr_long_double[i]); 
     }
     printf("\n \n");
