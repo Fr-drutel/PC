@@ -8,7 +8,7 @@
 * groupe A
 
 # Difficulté
-*
+* Moyen
 
 # Commentaires
 * 
