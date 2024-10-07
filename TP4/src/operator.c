@@ -41,7 +41,7 @@ int ou(int num1, int num2) {
 }
 
 int negation(int num1) {
-    return ~num1;
+    return -num1;
 }
 
 
