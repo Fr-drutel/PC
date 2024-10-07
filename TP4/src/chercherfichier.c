@@ -1,5 +1,5 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: chercherfichier.c
+* Objectif : rechercher une phrase dans un fichier donné
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 

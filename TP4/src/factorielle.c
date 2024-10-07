@@ -1,5 +1,5 @@
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
+/* Fichier: factorielle.c
+* Objectif : calculer la factorielle d'un entier naturel donné.
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
