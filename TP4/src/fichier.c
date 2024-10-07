@@ -1,3 +1,8 @@
+/* Fichier: fichier.c
+* Objectif : créer un programme qui gère les fichiers en utilisant 
+* les fonctions lire_fichier et ecrire_dans_fichier
+* Auteurs: François-Régis Drutel et Paul Dumont
+*/
 
 #include <stdio.h>
 #include <sys/types.h>
@@ -28,33 +33,4 @@ int lire_fichier(char* 'nom_de_fichier');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int ecrire_dans_fichier(char* 'nom_de_fichier',char* 'message');
-/* Fichier: bonjour.c
-* Objectif : afficher Bonjour le Monde! à l'écran 
-* Auteurs: François-Régis Drutel et Paul Dumont
-*/
-
-#include <stdio.h> 
-
-int main(void)
-{
-
-
-}
