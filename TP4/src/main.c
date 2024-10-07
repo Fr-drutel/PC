@@ -63,5 +63,7 @@ int main(void)
             lire_fichier(nom_de_fichier);
             break;
 
+        case '3':   
+
     }
 }
