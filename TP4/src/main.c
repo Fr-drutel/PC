@@ -1,5 +1,6 @@
 #include <stdio.h> 
-#include "fichier.h"
+#include "operator.h"
+// #include "fichier.h"
 
 int main(void)
 {
