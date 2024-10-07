@@ -9,28 +9,28 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <string.h>
 
-int lire_fichier(char* 'nom_de_fichier');
-    char content[1000];
-    int fd, count, size;
-    fd = open ("./file.c", O_RDONLY);
-    size = read(fd, content, 1000);
-    for (count = 0; count < size; count ++) {
-    printf("%c", content[count]);
+
+int lire_fichier(char* nom_de_fichier){
+    char content;
+    int fd, size;
+    fd = open (nom_de_fichier, O_RDONLY);
+    while (1) {
+        size = read(fd, &content, 1);
+        if (size < 1) {
+            break;
+        }
+        printf("%c", content);
     }
     close(fd);
+    printf("\n");
+}
+
+int ecrire_dans_fichier(char* nom_de_fichier,char* message){
+    int fd, size;
+    fd = open(nom_de_fichier, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
+    size = write(fd, message, strlen(message));
+    close(fd);
     return 0;
-    
-
-
-
-
-
-
-
-
-
-
-
-
-int ecrire_dans_fichier(char* 'nom_de_fichier',char* 'message');
+}

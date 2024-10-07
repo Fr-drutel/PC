@@ -1,10 +1,11 @@
 #include <stdio.h> 
+#include "fichier.h"
 #include "operator.h"
-// #include "fichier.h"
+
 
 int main(void)
 {
-    int ex = '1';
+    int ex = '2';
     switch(ex){
         case '1':
 
@@ -52,7 +53,10 @@ int main(void)
             printf("resultat %c : %i \n", op, result);
             break;
         case '2':   
-
+            char message[] = "message pour fr";
+            char* nom_de_fichier = "text2.txt";
+            ecrire_dans_fichier(nom_de_fichier, message);
+            lire_fichier(nom_de_fichier);
             break;
 
     }
