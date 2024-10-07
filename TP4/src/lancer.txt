@@ -1,0 +1,5 @@
+ggc -c main.c
+gcc -c _____.c
+gcc main.o ______.o -o exo_.exe
+
+gcc -o main main.c ______.c
