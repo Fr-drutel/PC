@@ -1,6 +1,7 @@
 # Bibliothèques
-* 
-*
+* stdio.h  
+* stdlib.h
+* time.h
 
 # Références
 * https://fr.wikipedia.org/wiki/Tri_%C3%A0_bulles
