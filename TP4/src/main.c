@@ -3,6 +3,7 @@
 #include "operator.h"
 
 
+
 int main(void)
 {
     int ex = '2';
@@ -60,6 +61,48 @@ int main(void)
             break;
 
         case '3':   
+            struct etudiant {
+                char nom[30];
+                char prenom[30];
+                char adresse[30];
+                struct note {
+                    float notes_en_C;
+                    float notes_en_S;
+                } note;  
+            };
 
+            int nb_etudiant = 2;
+            struct etudiant etudiant[nb_etudiant];
+            char* nom_de_fichier3 = "etudiant.txt";
+
+            for(int i = 0; i < nb_etudiant;i++){
+
+                printf("nom de l'etudiant %i :", i);
+                scanf("%s", etudiant[i].nom);
+                ecrire_dans_fichier(nom_de_fichier3, etudiant[i].nom);
+
+                printf("prenom de l'etudiant %i :", i);
+                scanf("%s", etudiant[i].prenom);
+                ecrire_dans_fichier(nom_de_fichier3, etudiant[i].prenom);
+
+                printf("adresse de l'etudiant %i :", i);
+                scanf("%s", etudiant[i].adresse);
+                ecrire_dans_fichier(nom_de_fichier3, etudiant[i].adresse);
+
+                printf("notes_en_C de l'etudiant %i :", i);
+                scanf("%f", &etudiant[i].note.notes_en_C);
+                char noteC[6];
+                sprintf(noteC, "%f0.2",etudiant[i].note.notes_en_C);
+                ecrire_dans_fichier(nom_de_fichier3, noteC);
+
+                printf("notes_en_S de l'etudiant %i :", i);
+                scanf("%f", &etudiant[i].note.notes_en_S);
+                char noteS[6];
+                sprintf(noteS, "%f0.2",etudiant[i].note.notes_en_S);
+                ecrire_dans_fichier(nom_de_fichier3, noteS);
+            }
+            
+            lire_fichier(nom_de_fichier3);
+            break;
     }
 }
