@@ -1,11 +1,13 @@
 #include <stdio.h> 
 #include "fichier.h"
 #include "operator.h"
+#include <string.h>
+
 
 
 int main(void)
 {
-    int ex = '2';
+    int ex = '3';
     switch(ex){
         case '1':
 

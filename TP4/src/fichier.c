@@ -12,7 +12,7 @@
 #include <string.h>
 
 
-int lire_fichier(char* nom_de_fichier){
+void lire_fichier(char* nom_de_fichier){
     char content;
     int fd, size;
     fd = open (nom_de_fichier, O_RDONLY);
@@ -27,10 +27,13 @@ int lire_fichier(char* nom_de_fichier){
     printf("\n");
 }
 
-int ecrire_dans_fichier(char* nom_de_fichier,char* message){
+void ecrire_dans_fichier(char* nom_de_fichier,char* message){
     int fd, size;
-    fd = open(nom_de_fichier, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
-    size = write(fd, message, strlen(message));
+    fd = open(nom_de_fichier, O_CREAT | O_WRONLY | O_APPEND, S_IRUSR | S_IWUSR);
+
+    char saut_ligne[strlen(message) + 2]; // 1 pour '\n' et 1 pour '\0'
+    sprintf(saut_ligne, "%s\n", message); // Ajoute "\n" à la fin du message
+
+    size = write(fd, saut_ligne, strlen(saut_ligne));
     close(fd);
-    return 0;
 }

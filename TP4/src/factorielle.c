@@ -3,10 +3,21 @@
 * Auteurs: François-Régis Drutel et Paul Dumont
 */
 
-#include <stdio.h> 
+#include <stdio.h>
 
-int main(void)
-{
+// Définition de la fonction factorielle
+int factorielle(int num) {
+  if (num == 0) {
+    return 1;
+  } else {
+    int valeur = num * factorielle(num - 1);
+    return (valeur);
+  }
+}
 
-
+int main() {
+  int n = 4;
+  int result = factorielle(n);
+  printf("La factorielle de %d est : %d\n", n, result);
+  return 0;
 }
