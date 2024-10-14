@@ -58,15 +58,37 @@ int main(void)
 
         case '2':   
 
-            char* nom_de_fichier = "text2.txt";
-
+            int action = 0;
+            char* nom_fichier;
             char message[] = "message pour fr";
-            ecrire_dans_fichier(nom_de_fichier, message);
 
-            char message2[] = "message pour paul";
-            ecrire_dans_fichier(nom_de_fichier, message2);
+            printf("Que souhaitez-vous faire ?\n");
+            printf("1. Lire un fichier\n");
+            printf("2. Écrire dans un fichier\n");
+            printf("Votre choix :");
+            scanf("%i", &action);
 
-            lire_fichier(nom_de_fichier);
+            if(action == 1){
+                printf("Entrez le nom du fichier à lire :");
+                scanf("%s", nom_fichier);
+                printf("Contenu du fichier fichier.txt : \n ");
+                lire_fichier(nom_fichier);
+            }
+
+
+            if(action == 2){
+                printf("Entrez le nom du fichier dans lequel vous souhaitez écrire :");
+                scanf("%s", nom_fichier);
+                printf("Entrez le message à écrire :");
+                scanf("%s", message);
+                ecrire_dans_fichier(nom_fichier, message);
+                printf("Le message a été écrit dans le fichier %s.txt.", nom_fichier);
+            }
+
+
+            break;
+
+        case '3':   
             break;
     }
 }
