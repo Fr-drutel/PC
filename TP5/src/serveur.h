@@ -15,5 +15,6 @@
  * en retour
  */
 int renvoie_message(int, char *);
+int recois_envoie_message(int , char *);
 
 #endif

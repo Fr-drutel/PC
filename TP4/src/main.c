@@ -60,7 +60,7 @@ int main(void)
 
             int action = 0;
             char nom_fichier[] = "text2.txt";
-            char message[] = "message pour raph";
+            char message[] = "message pour ";
 
             ecrire_dans_fichier(nom_fichier, message);
             lire_fichier(nom_fichier);

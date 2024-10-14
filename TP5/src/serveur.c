@@ -50,17 +50,54 @@ int renvoie_message(int client_socket_fd, char *data)
 int recois_envoie_message(int client_socket_fd, char *data)
 {
   printf("Message reçu: %s\n", data);
-  char code[10];
-  if (sscanf(data, "%9s:", code) == 1) // Assurez-vous que le format est correct
-  {
-    if (strcmp(code, "message:") == 0)
-    {
-      return renvoie_message(client_socket_fd, data);
-    }
-  }
+  char reponse[1024];
+  memset(reponse, 0, sizeof(reponse));
+  char message[1024];
 
-  return (EXIT_SUCCESS);
+  printf("Votre message (max 1000 caractères): ");
+  fgets(message, sizeof(message), stdin);
+
+  // Construit le message avec une étiquette "message: "
+  strcpy(reponse, "message: ");
+  strcat(reponse, message);
+
+  return renvoie_message(client_socket_fd, reponse);
 }
+
+int recois_numeros_calcule(int client_socket_fd, char *data)
+{
+  printf("Message reçu: %s\n", data);
+
+  char operateur;
+  int nombre1, nombre2;
+
+  // Pointer pour ignorer "calcule : " dans la chaîne
+    char *ptr = strstr(data, ":");
+    if (ptr != NULL) {
+        ptr += 2; // Ignorer ": " (2 caractères)
+        
+        // Utilisation de sscanf pour extraire l'opérateur et les deux nombres
+        int result = sscanf(ptr, "%c %d %d", &operateur, &nombre1, &nombre2);}
+
+  // Affichage des valeurs extraites
+  printf("Opérateur : %c\n", operateur);
+  printf("Nombre 1 : %d\n", nombre1);
+  printf("Nombre 2 : %d\n", nombre2);
+
+  char reponse[1024];
+  memset(reponse, 0, sizeof(reponse));
+
+  // Calcul du résultat
+  int resulta = nombre1 + nombre2;
+
+  // Construit le message avec une étiquette "calcule : "
+  sprintf(reponse, "calcule : %d", resulta); // Utilise sprintf pour construire la chaîne
+  // printf("Message de réponse: %s\n", reponse); // Afficher le message de réponse
+
+  return renvoie_message(client_socket_fd, reponse);
+}
+
+
 
 /**
  * Gestionnaire de signal pour Ctrl+C (SIGINT).
@@ -114,7 +151,8 @@ void gerer_client(int client_socket_fd)
       break; // Sortir de la boucle de communication avec ce client
     }
 
-    recois_envoie_message(client_socket_fd, data);
+    // recois_envoie_message(client_socket_fd, data);
+    recois_numeros_calcule(client_socket_fd, data);
   }
 }
 

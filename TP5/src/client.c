@@ -62,6 +62,47 @@ int envoie_recois_message(int socketfd)
   return 0; // Succès
 }
 
+int envoie_operateur_numeros(int socketfd)
+{
+  char data[1024];
+
+  // Réinitialisation de l'ensemble des données
+  memset(data, 0, sizeof(data));
+
+  // Demande à l'utilisateur d'entrer un message
+  char message[1024];
+  printf("Votre message exmeple (+ 23 45):");
+  fgets(message, sizeof(message), stdin);
+
+  // Construit le message avec une étiquette "message: "
+  strcpy(data, "calcule : ");
+  strcat(data, message);
+
+  // Envoie le message au client
+  int write_status = write(socketfd, data, strlen(data));
+  if (write_status < 0)
+  {
+    perror("Erreur d'écriture");
+    return -1;
+  }
+
+  // Réinitialisation de l'ensemble des données
+  memset(data, 0, sizeof(data));
+
+  // Lit les données de la socket
+  int read_status = read(socketfd, data, sizeof(data));
+  if (read_status < 0)
+  {
+    perror("Erreur de lecture");
+    return -1;
+  }
+
+  // Affiche le message reçu du client
+  printf("Message reçu: %s\n", data);
+
+  return 0; // Succès
+}
+
 int main()
 {
   int socketfd;
@@ -95,7 +136,8 @@ int main()
   while (1)
   {
     // appeler la fonction pour envoyer un message au serveur
-    envoie_recois_message(socketfd);
+    // envoie_recois_message(socketfd);
+    envoie_operateur_numeros(socketfd);
   }
 
   close(socketfd);
