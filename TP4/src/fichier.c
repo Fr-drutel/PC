@@ -10,18 +10,19 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
+#include "fichier.h"
 
 
 void lire_fichier(char* nom_de_fichier){
-    char content;
+    char contenu;
     int fd, size;
     fd = open (nom_de_fichier, O_RDONLY);
     while (1) {
-        size = read(fd, &content, 1);
+        size = read(fd, &contenu, 1);
         if (size < 1) {
             break;
         }
-        printf("%c", content);
+        printf("%c", contenu);
     }
     close(fd);
     printf("\n");

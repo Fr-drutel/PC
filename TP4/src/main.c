@@ -7,7 +7,7 @@
 
 int main(void)
 {
-    int ex = '3';
+    int ex = '1';
     switch(ex){
         case '1':
 
