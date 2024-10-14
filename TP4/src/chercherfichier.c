@@ -33,32 +33,30 @@ int main() {
 
 
     printf("Entrez le nom du fichier : ");
-    scanf("%s", nom_fichier);
-    
+    scanf("%s", nom_fichier);  
+
     fd = open (nom_fichier, O_RDONLY);
     if (fd == -1) {
         perror("Erreur lors de l'ouverture du fichier");
         return 1;
     }
 
+
     printf("Entrez la phrase que vous souhaitez rechercher : ");
     getchar(); // Pour virer le "\n" laissé par scanf
+
     fgets(phrase, sizeof(phrase), stdin);
-    phrase[strcspn(phrase, "\n")] = '\0'; // Enlever le saut de ligne de la phrase
+    phrase[strcspn(phrase, "\n")] = '\0'; // Pour virer le "\n" laissé par fgets
+
 
     printf("\nRésultats de la recherche :\n");
-
     while ((size = read(fd, &contenu, 1)) > 0) {
         if (contenu == '\n') {
             ligne[index] = '\0';  // Terminer la ligne
             int occurrences = compter_occurrences(ligne, phrase);
             
             if (occurrences > 0) {
-                printf("Ligne %d, %d fois\n", numero_ligne, occurrences);
-            }
-
-            if (occurrences > 0) {
-                printf("Ligne %d, %d fois\n", numero_ligne, occurrences);
+                printf("Ligne %d, %d fois\n", numero_ligne + 1, occurrences);
             }
             
             numero_ligne++;
@@ -67,15 +65,6 @@ int main() {
             ligne[index++] = contenu;
         }
     }
-
-    // Gérer une ligne qui n'est pas terminée par un saut de ligne à la fin du fichier
-    // if (index > 0) {
-    //     ligne[index] = '\0';
-    //     int occurrences = compter_occurrences(ligne, phrase);
-    //     if (occurrences > 0) {
-    //         printf("Ligne %d, %d fois\n", numero_ligne, occurrences);
-    //     }
-    // }
 
     close(fd);
     printf("\n");
