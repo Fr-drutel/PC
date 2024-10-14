@@ -7,7 +7,7 @@
 
 int main(void)
 {
-    int ex = '1';
+    int ex = '2';
     switch(ex){
         case '1':
 
@@ -59,8 +59,8 @@ int main(void)
         case '2':   
 
             int action = 0;
-            char* nom_fichier;
-            char message[] = "message pour fr";
+            char nom_fichier[200];
+            char message[300];
 
             printf("Que souhaitez-vous faire ?\n");
             printf("1. Lire un fichier\n");
@@ -71,7 +71,7 @@ int main(void)
             if(action == 1){
                 printf("Entrez le nom du fichier à lire :");
                 scanf("%s", nom_fichier);
-                printf("Contenu du fichier fichier.txt : \n ");
+                printf("Contenu du fichier %s : \n", nom_fichier);
                 lire_fichier(nom_fichier);
             }
 
@@ -82,7 +82,7 @@ int main(void)
                 printf("Entrez le message à écrire :");
                 scanf("%s", message);
                 ecrire_dans_fichier(nom_fichier, message);
-                printf("Le message a été écrit dans le fichier %s.txt.", nom_fichier);
+                printf("Le message a été écrit dans le fichier %s.", nom_fichier);
             }
 
 
