@@ -62,11 +62,8 @@ int main(void)
             char nom_fichier[200];
             char message[300];
 
-            printf("Que souhaitez-vous faire ?\n");
-            printf("1. Lire un fichier\n");
-            printf("2. Écrire dans un fichier\n");
-            printf("Votre choix :");
-            scanf("%i", &action);
+            ecrire_dans_fichier(nom_fichier, message);
+            lire_fichier(nom_fichier);
 
             if(action == 1){
                 printf("Entrez le nom du fichier à lire :");
