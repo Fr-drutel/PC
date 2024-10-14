@@ -56,30 +56,40 @@ int main(void)
             break;
 
 
-        case '2':   
-
+        case '2':  
+            
             int action = 0;
             char nom_fichier[200];
             char message[300];
 
-            ecrire_dans_fichier(nom_fichier, message);
-            lire_fichier(nom_fichier);
+            printf("Que souhaitez-vous faire ?\n");
+            printf("1. Lire un fichier\n");
+            printf("2. Écrire dans un fichier\n");
+            printf("Votre choix :");
+            scanf("%i", &action);
 
-            if(action == 1){
-                printf("Entrez le nom du fichier à lire :");
-                scanf("%s", nom_fichier);
-                printf("Contenu du fichier %s : \n", nom_fichier);
-                lire_fichier(nom_fichier);
-            }
+            switch(action){
+                case 1: 
+
+                    printf("Entrez le nom du fichier à lire :");
+                    scanf("%s", nom_fichier);
+                    printf("Contenu du fichier %s : \n", nom_fichier);
+                    lire_fichier(nom_fichier);
+                    break;
 
 
-            if(action == 2){
-                printf("Entrez le nom du fichier dans lequel vous souhaitez écrire :");
-                scanf("%s", nom_fichier);
-                printf("Entrez le message à écrire :");
-                scanf("%s", message);
-                ecrire_dans_fichier(nom_fichier, message);
-                printf("Le message a été écrit dans le fichier %s.", nom_fichier);
+                case 2:
+
+                    printf("Entrez le nom du fichier dans lequel vous souhaitez écrire :");
+                    scanf("%s", nom_fichier);
+                    getchar();
+
+                    printf("Entrez le message à écrire :");
+                    fgets(message, sizeof(message), stdin);
+                    
+                    ecrire_dans_fichier(nom_fichier, message);
+                    printf("Le message a été écrit dans le fichier %s\n", nom_fichier);
+                    break;
             }
 
 
