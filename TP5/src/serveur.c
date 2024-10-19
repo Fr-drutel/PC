@@ -88,8 +88,33 @@ int recois_numeros_calcule(int client_socket_fd, char *data)
   memset(reponse, 0, sizeof(reponse));
 
   // Calcul du résultat
-  int resulta = nombre1 + nombre2;
-
+  int resulta = 0;
+  switch (operateur){
+    case '+' : 
+        resulta = nombre1 + nombre2;
+        break;
+    case '-' : 
+        resulta = nombre1 - nombre2;
+        break;
+    case '*' : 
+        resulta = nombre1 * nombre2;
+        break;
+    case '/' : 
+        resulta = nombre1 / nombre2;
+        break;
+    case '%' : 
+        resulta = nombre1 % nombre2;
+        break;
+    case '&' : 
+        resulta = nombre1 & nombre2;
+        break;
+    case '|' : 
+        resulta = nombre1 | nombre2;
+        break;
+    case '~' : 
+        resulta = ~nombre1;
+        break;
+}
   // Construit le message avec une étiquette "calcule : "
   sprintf(reponse, "calcule : %d", resulta); // Utilise sprintf pour construire la chaîne
   // printf("Message de réponse: %s\n", reponse); // Afficher le message de réponse
