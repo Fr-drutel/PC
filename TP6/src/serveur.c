@@ -51,7 +51,7 @@ int plot(char *data)
   char *saveptr = NULL;
   char *str = data;
   char *token = strtok_r(str, ",", &saveptr);
-  const int num_colors = 10;
+  const int num_colors = 30;
 
   double angles[num_colors];
   memset(angles, 0, sizeof(angles));
