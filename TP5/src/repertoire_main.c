@@ -9,7 +9,8 @@ int main(int argc, char *argv[]) {
 
     char *nom_repertoire = argv[1];
     // lire_dossier(nom_repertoire);
-    lire_dossier_recursif(nom_repertoire);
+    // lire_dossier_recursif(nom_repertoire);
+    lire_dossier_iteratif(nom_repertoire);
 
     return 0;
 }
