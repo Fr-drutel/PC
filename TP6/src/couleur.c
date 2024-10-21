@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <search.h>
 
-// compter les couleurs distincts
+// compter les couleurs distinctes
 couleur_compteur *compte_couleur(couleur *c, int csize)
 {
   couleur_compteur *compteur;
