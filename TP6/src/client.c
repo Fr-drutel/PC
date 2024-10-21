@@ -62,18 +62,19 @@ void analyse(char *pathname, char *data)
 {
   // compte de couleurs
   couleur_compteur *cc = analyse_bmp_image(pathname);
-
+  int nb_couleur = 30;
   int count;
   strcpy(data, "couleurs: ");
-  char temp_string[10] = "10,";
-  if (cc->size < 10)
+  char temp_string[30];
+  sprintf(temp_string, "%d,", nb_couleur);
+  if (cc->size < 30)
   {
     sprintf(temp_string, "%d,", cc->size);
   }
   strcat(data, temp_string);
 
-  // choisir 10 couleurs
-  for (count = 1; count < 11 && cc->size - count > 0; count++)
+  // choisir 30 couleurs
+  for (count = 1; count < nb_couleur+1 && cc->size - count > 0; count++)
   {
     if (cc->compte_bit == BITS32)
     {
