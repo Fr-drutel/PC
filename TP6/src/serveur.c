@@ -20,8 +20,8 @@ int socketfd;
 
 int visualize_plot()
 {
-  const char *browser = "firefox";
-  // const char *browser = "cat";
+  // const char *browser = "firefox";
+  const char *browser = "cat";
 
   char command[256];
   snprintf(command, sizeof(command), "%s %s", browser, svg_file_path);
