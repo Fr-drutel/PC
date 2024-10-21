@@ -20,7 +20,7 @@ int socketfd;
 
 int visualize_plot()
 {
-  const char *browser = "firefox";v
+  const char *browser = "firefox";
   // const char *browser = "cat";
 
   char command[256];
