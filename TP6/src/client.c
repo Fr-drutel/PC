@@ -58,11 +58,10 @@ int envoie_recois_message(int socketfd)
   return 0;
 }
 
-void analyse(char *pathname, char *data)
+void analyse(char *pathname,int nb_couleur ,char *data)
 {
   // compte de couleurs
   couleur_compteur *cc = analyse_bmp_image(pathname);
-  int nb_couleur = 30;
   int count;
   strcpy(data, "couleurs: ");
   char temp_string[30];
@@ -91,11 +90,11 @@ void analyse(char *pathname, char *data)
   data[strlen(data) - 1] = '\0';
 }
 
-int envoie_couleurs(int socketfd, char *pathname)
+int envoie_couleurs(int socketfd,int nb_couleur, char *pathname)
 {
   char data[1024];
   memset(data, 0, sizeof(data));
-  analyse(pathname, data);
+  analyse(pathname,nb_couleur, data);
 
   int write_status = write(socketfd, data, strlen(data));
   if (write_status < 0)
@@ -151,7 +150,8 @@ int main(int argc, char **argv)
   {
     // envoyer et recevoir les couleurs prédominantes
     // d'une image au format BMP (argv[1])
-    envoie_couleurs(socketfd, argv[1]);
+    int nb_couleur = 30;
+    envoie_couleurs(socketfd, nb_couleur,  argv[1]);
   }
 
   close(socketfd);
