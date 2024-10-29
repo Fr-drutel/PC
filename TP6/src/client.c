@@ -12,6 +12,8 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <cjson/cJSON.h>
+
 
 #include "client.h"
 #include "bmp.h"
@@ -20,43 +22,44 @@
  * Fonction d'envoi et de réception de messages
  * Il faut un argument : l'identifiant de la socket
  */
-
 int envoie_recois_message(int socketfd)
 {
-
-  char data[1024];
-  // la réinitialisation de l'ensemble des données
-  memset(data, 0, sizeof(data));
-
-  // Demandez à l'utilisateur d'entrer un message
   char message[1024];
   printf("Votre message (max 1000 caracteres): ");
   fgets(message, sizeof(message), stdin);
-  strcpy(data, "message: ");
-  strcat(data, message);
 
-  int write_status = write(socketfd, data, strlen(data));
-  if (write_status < 0)
-  {
+  // Création de l'objet JSON
+  cJSON *json_message = cJSON_CreateObject();
+  cJSON_AddStringToObject(json_message, "code", "message");
+  cJSON_AddStringToObject(json_message, "contenu", message);
+
+  // Conversion en texte JSON
+  char *json_text = cJSON_PrintUnformatted(json_message);
+
+  // Envoi du message JSON
+  int write_status = write(socketfd, json_text, strlen(json_text));
+  if (write_status < 0) {
     perror("erreur ecriture");
     exit(EXIT_FAILURE);
   }
 
-  // la réinitialisation de l'ensemble des données
-  memset(data, 0, sizeof(data));
+  // Nettoyage
+  free(json_text);
+  cJSON_Delete(json_message);
 
-  // lire les données de la socket
+  // Réception de la réponse du serveur
+  char data[1024];
+  memset(data, 0, sizeof(data));
   int read_status = read(socketfd, data, sizeof(data));
-  if (read_status < 0)
-  {
+  if (read_status < 0) {
     perror("erreur lecture");
     return -1;
   }
 
   printf("Message recu: %s\n", data);
-
   return 0;
 }
+
 
 void analyse(char *pathname,int nb_couleur ,char *data)
 {
@@ -93,18 +96,29 @@ void analyse(char *pathname,int nb_couleur ,char *data)
 int envoie_couleurs(int socketfd, int nb_couleur, char *pathname)
 {
   char data[1024];
-  memset(data, 0, sizeof(data));
-  analyse(pathname,nb_couleur, data);
+  analyse(pathname, nb_couleur, data);
 
-  int write_status = write(socketfd, data, strlen(data));
-  if (write_status < 0)
-  {
+  // Création de l'objet JSON
+  cJSON *json_message = cJSON_CreateObject();
+  cJSON_AddStringToObject(json_message, "code", "couleurs");
+  cJSON_AddStringToObject(json_message, "data", data);
+
+  // Conversion en texte JSON
+  char *json_text = cJSON_PrintUnformatted(json_message);
+
+  int write_status = write(socketfd, json_text, strlen(json_text));
+  if (write_status < 0) {
     perror("erreur ecriture");
     exit(EXIT_FAILURE);
   }
 
+  // Nettoyage
+  free(json_text);
+  cJSON_Delete(json_message);
+
   return 0;
 }
+
 
 int main(int argc, char **argv)
 {
