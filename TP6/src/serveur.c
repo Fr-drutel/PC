@@ -49,9 +49,13 @@ int plot(char *data)
 {
   int i;
   char *saveptr = NULL;
+  char* saveptrPrefix = NULL;
   char *str = data;
-  char *token = strtok_r(str, ",", &saveptr);
-  const int num_colors = 30;
+  char *token = strtok_r(str, " ", &saveptrPrefix);
+  token = strtok_r(NULL, " ", &saveptrPrefix);
+  token = strtok_r(token, ",", &saveptr);
+  const int num_colors = atoi(token);
+  printf("%s=%i\n",token, num_colors);
 
   double angles[num_colors];
   memset(angles, 0, sizeof(angles));
@@ -77,7 +81,7 @@ int plot(char *data)
   i = 0;
   while (1)
   {
-    token = strtok_r(str, ",", &saveptr);
+    token = strtok_r(NULL, ",", &saveptr);
     if (token == NULL)
     {
       break;

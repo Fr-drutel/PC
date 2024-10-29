@@ -64,9 +64,9 @@ void analyse(char *pathname,int nb_couleur ,char *data)
   couleur_compteur *cc = analyse_bmp_image(pathname);
   int count;
   strcpy(data, "couleurs: ");
-  char temp_string[30];
+  char temp_string[10];
   sprintf(temp_string, "%d,", nb_couleur);
-  if (cc->size < 30)
+  if (cc->size < nb_couleur)
   {
     sprintf(temp_string, "%d,", cc->size);
   }
@@ -90,7 +90,7 @@ void analyse(char *pathname,int nb_couleur ,char *data)
   data[strlen(data) - 1] = '\0';
 }
 
-int envoie_couleurs(int socketfd,int nb_couleur, char *pathname)
+int envoie_couleurs(int socketfd, int nb_couleur, char *pathname)
 {
   char data[1024];
   memset(data, 0, sizeof(data));
@@ -141,7 +141,7 @@ int main(int argc, char **argv)
     perror("connection serveur");
     exit(EXIT_FAILURE);
   }
-  if (argc != 2)
+  if (argc != 3)
   {
     // envoyer et recevoir un message
     envoie_recois_message(socketfd);
@@ -150,8 +150,15 @@ int main(int argc, char **argv)
   {
     // envoyer et recevoir les couleurs prédominantes
     // d'une image au format BMP (argv[1])
-    int nb_couleur = 30;
-    envoie_couleurs(socketfd, nb_couleur,  argv[1]);
+    // int nb_couleur = 30;
+    if(atoi(argv[2])>30)
+    {
+      perror("TROP DE COULEUR");
+      exit(EXIT_FAILURE);
+    }
+
+
+    envoie_couleurs(socketfd, atoi(argv[2]),  argv[1]);
   }
 
   close(socketfd);
