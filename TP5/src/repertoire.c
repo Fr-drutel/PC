@@ -7,7 +7,7 @@
 
 int lire_dossier(char *nom_repertoire){
 
-    DIR *dirp = opendir(nom_repertoire);
+    DIR *dirp = opendir(nom_repertoire); // ouverture du répertoire
     if (dirp == NULL) {
         perror("opendir");
         return(EXIT_FAILURE);
@@ -15,11 +15,11 @@ int lire_dossier(char *nom_repertoire){
 
     struct dirent *ent;
     while(1) {
-        ent = readdir(dirp);
+        ent = readdir(dirp); // lecture
         if (ent == NULL) {
             break;
         }
-        printf("%s\n", ent->d_name);
+        printf("%s\n", ent->d_name); // affichage du nom du dossier ou fichier
     }
     closedir(dirp);
     return(0);
@@ -34,19 +34,22 @@ int lire_dossier_recursif(char* nom_repertoire) {
         if (ent == NULL) {
             break;
         }
+        // Ignore les entrées "." et ".." pour éviter les boucles infinies
         if (strcmp(ent->d_name, ".") == 0 || strcmp(ent->d_name, "..") == 0) {
             continue;
         }
         char chemin[1024];
-        sprintf(chemin, "%s/%s", nom_repertoire, ent->d_name);
+        sprintf(chemin, "%s/%s", nom_repertoire, ent->d_name); // chemin d'accès
         
         printf("%s\n", ent->d_name);
+
+        // Si l'entrée est un sous-répertoire, appelle récursivement la fonction
         if (ent->d_type == DT_DIR) {
             lire_dossier_recursif(chemin);
         }
-        
     }
     closedir(dirp);
+
 }
 int lire_dossier_iteratif(char* nom_repertoire) {
     // Création d'une pile (tableau dynamique) pour stocker les répertoires
