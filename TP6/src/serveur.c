@@ -15,6 +15,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#include <cjson/cJSON.h>
+
 #include "serveur.h"
 int socketfd;
 
@@ -49,9 +51,13 @@ int plot(char *data)
 {
   int i;
   char *saveptr = NULL;
+  char* saveptrPrefix = NULL;
   char *str = data;
-  char *token = strtok_r(str, ",", &saveptr);
-  const int num_colors = 30;
+  char *token = strtok_r(str, " ", &saveptrPrefix);
+  token = strtok_r(NULL, " ", &saveptrPrefix);
+  token = strtok_r(token, ",", &saveptr);
+  const int num_colors = atoi(token);
+  printf("%s=%i\n",token, num_colors);
 
   double angles[num_colors];
   memset(angles, 0, sizeof(angles));
@@ -77,7 +83,7 @@ int plot(char *data)
   i = 0;
   while (1)
   {
-    token = strtok_r(str, ",", &saveptr);
+    token = strtok_r(NULL, ",", &saveptr);
     if (token == NULL)
     {
       break;
@@ -112,17 +118,25 @@ int plot(char *data)
 
 /* renvoyer un message (*data) au client (client_socket_fd)
  */
-int renvoie_message(int client_socket_fd, char *data)
+int renvoie_message(int client_socket_fd, char *message_content)
 {
-  int data_size = write(client_socket_fd, (void *)data, strlen(data));
+  cJSON *json_response = cJSON_CreateObject();
+  cJSON_AddStringToObject(json_response, "reponse", message_content);
 
-  if (data_size < 0)
-  {
+  char *json_text = cJSON_PrintUnformatted(json_response);
+
+  int data_size = write(client_socket_fd, json_text, strlen(json_text));
+  if (data_size < 0) {
     perror("erreur ecriture");
-    return (EXIT_FAILURE);
+    return EXIT_FAILURE;
   }
-  return (EXIT_SUCCESS);
+
+  // Nettoyage
+  free(json_text);
+  cJSON_Delete(json_response);
+  return EXIT_SUCCESS;
 }
+
 
 /* accepter la nouvelle connection d'un client et lire les données
  * envoyées par le client. En suite, le serveur envoie un message
@@ -130,26 +144,32 @@ int renvoie_message(int client_socket_fd, char *data)
  */
 int recois_envoie_message(int client_socket_fd, char data[1024])
 {
-  /*
-   * extraire le code des données envoyées par le client.
-   * Les données envoyées par le client peuvent commencer par le mot "message :" ou un autre mot.
-   */
-  printf("Message recu: %s\n", data);
-  char code[10];
-  sscanf(data, "%s", code);
-
-  // Si le message commence par le mot: 'message:'
-  if (strcmp(code, "message:") == 0)
-  {
-    renvoie_message(client_socket_fd, data);
-  }
-  else
-  {
-    plot(data);
+  // Parse JSON reçu
+  cJSON *json_message = cJSON_Parse(data);
+  if (json_message == NULL) {
+    perror("erreur JSON");
+    return -1;
   }
 
-  return (EXIT_SUCCESS);
+  // Extraction du code de l'opération
+  const cJSON *code = cJSON_GetObjectItemCaseSensitive(json_message, "code");
+  if (cJSON_IsString(code) && (code->valuestring != NULL)) {
+    if (strcmp(code->valuestring, "message") == 0) {
+      // Réponse au client en renvoyant le même message
+      renvoie_message(client_socket_fd, data);
+    } else if (strcmp(code->valuestring, "couleurs") == 0) {
+      const cJSON *couleur_data = cJSON_GetObjectItemCaseSensitive(json_message, "data");
+      if (cJSON_IsString(couleur_data)) {
+        plot(couleur_data->valuestring);  // Affichage des couleurs
+      }
+    }
+  }
+
+  // Nettoyage JSON
+  cJSON_Delete(json_message);
+  return 0;
 }
+
 
 // Fonction de gestion du signal Ctrl+C
 void gestionnaire_ctrl_c(int signal)

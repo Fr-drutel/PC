@@ -9,11 +9,10 @@ CLIENT = client
 all: $(SERVER) $(CLIENT)
 
 $(SERVER): $(SOBJS)
-	gcc -o $(SERVER) $(SOBJS) -lm
+	gcc -o $(SERVER) $(SOBJS) -lm -lcjson  
 
 $(CLIENT): $(COBJS)
-	gcc -o $(CLIENT) $(COBJS)
+	gcc -o $(CLIENT) $(COBJS) -lcjson  
 
 .c.o: 
 	gcc -Wall -Werror -ggdb3 -c $*.c
-
