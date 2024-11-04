@@ -1,13 +1,13 @@
 #include <stdio.h> 
 #include "fichier.h"
 #include "operator.h"
+#include "liste.h"
 #include <string.h>
-
-
+#include <stdlib.h>
 
 int main(void)
 {
-    int ex = '2';
+    int ex = '7';
     switch(ex){
         case '1':
 
@@ -95,7 +95,37 @@ int main(void)
 
             break;
 
-        case '3':   
+        case '7':   
+
+            struct liste_couleurs ma_liste = {NULL, NULL};
+
+            struct couleur couleur1 = {0xFF, 0x00, 0x00, 0xFF}; // Rouge
+            struct couleur couleur2 = {0x00, 0xFF, 0x00, 0xFF}; // Vert
+            struct couleur couleur3 = {0x00, 0x00, 0xFF, 0xFF}; // Bleu
+            struct couleur couleur4 = {0xFF, 0xFF, 0x00, 0xFF}; // Jaune
+            struct couleur couleur5 = {0xFF, 0xA5, 0x00, 0xFF}; // Orange
+            struct couleur couleur6 = {0x80, 0x00, 0x80, 0xFF}; // Violet
+            struct couleur couleur7 = {0x00, 0xFF, 0xFF , 0xFF}; // Cyan
+            struct couleur couleur8 = {0xFF, 0x00, 0xFF, 0xFF}; // Magenta
+            struct couleur couleur9 = {0xA5, 0x2A, 0x2A, 0xFF}; // Marron
+            struct couleur couleur10 = {0x80, 0x80, 0x80, 0xFF}; // Gris
+            
+
+            insertion(&couleur1, &ma_liste);
+            insertion(&couleur2, &ma_liste);
+            insertion(&couleur3, &ma_liste);
+            insertion(&couleur4, &ma_liste);
+            insertion(&couleur5, &ma_liste);
+            insertion(&couleur6, &ma_liste);
+            insertion(&couleur7, &ma_liste);
+            insertion(&couleur8, &ma_liste);
+            insertion(&couleur9, &ma_liste);
+            insertion(&couleur10, &ma_liste);
+
+
+            printf("Liste des couleurs :\n");
+            parcours(&ma_liste);
+
             break;
     }
 }
