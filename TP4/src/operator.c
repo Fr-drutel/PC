@@ -29,7 +29,7 @@ int divise(int num1, int num2) {
 
 int modulo(int num1, int num2) {
     if (num2 != 0) {
-        return num1 % num2;
+        return num1 % num2; // Retourne le reste si le diviseur est non nul
     } else {
         printf("Erreur !! modulo par zéro.\n");
         return 0;

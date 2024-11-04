@@ -43,10 +43,10 @@ int main() {
 
 
     printf("Entrez la phrase que vous souhaitez rechercher : ");
-    getchar(); // Pour virer le "\n" laissé par scanf
+    getchar(); // Pour enlever le "\n" laissé par scanf
 
     fgets(phrase, sizeof(phrase), stdin);
-    phrase[strcspn(phrase, "\n")] = '\0'; // Pour virer le "\n" laissé par fgets
+    phrase[strcspn(phrase, "\n")] = '\0'; // Pour enlever le "\n" laissé par fgets
 
 
     printf("\nRésultats de la recherche :\n");

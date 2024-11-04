@@ -16,9 +16,9 @@
 void lire_fichier(char* nom_de_fichier){
     char contenu;
     int fd, size;
-    fd = open (nom_de_fichier, O_RDONLY);
+    fd = open (nom_de_fichier, O_RDONLY); // Ouverture du fichier en lecture seule
     while (1) {
-        size = read(fd, &contenu, 1);
+        size = read(fd, &contenu, 1); // Lecture d'un octet à la fois
         if (size < 1) {
             break;
         }
@@ -30,7 +30,7 @@ void lire_fichier(char* nom_de_fichier){
 
 void ecrire_dans_fichier(char* nom_de_fichier,char* message){
     int fd, size;
-    fd = open(nom_de_fichier, O_CREAT | O_WRONLY | O_APPEND, S_IRUSR | S_IWUSR);
+    fd = open(nom_de_fichier, O_CREAT | O_WRONLY | O_APPEND, S_IRUSR | S_IWUSR);  // Ouverture/création en ajout
 
     char saut_ligne[strlen(message) + 2]; // 1 pour '\n' et 1 pour '\0'
     sprintf(saut_ligne, "%s\n", message); // Ajoute "\n" à la fin du message

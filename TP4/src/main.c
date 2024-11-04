@@ -1,3 +1,8 @@
+/* Fichier: main.c
+* Objectif : Fichier principal servant aux exos 1, 2 et 7
+* Auteurs: François-Régis Drutel et Paul Dumont
+*/
+
 #include <stdio.h> 
 #include "fichier.h"
 #include "operator.h"
@@ -23,7 +28,7 @@ int main(void)
             printf("Entrez une opération (par exemple +, -, *, /, %%, &, |, ~) : ");
             scanf(" %c", &op);
 
-            int result = -1;
+            int result = -1; // Initialisation du résultat avec une valeur par défaut : -1
 
             switch (op){
                 case '+' : 
@@ -66,7 +71,7 @@ int main(void)
             printf("1. Lire un fichier\n");
             printf("2. Écrire dans un fichier\n");
             printf("Votre choix :");
-            scanf("%i", &action);
+            scanf("%i", &action); // Demande à l'utilisateur de choisir une action
 
             switch(action){
                 case 1: 
@@ -82,7 +87,7 @@ int main(void)
 
                     printf("Entrez le nom du fichier dans lequel vous souhaitez écrire :");
                     scanf("%s", nom_fichier);
-                    getchar();
+                    getchar(); // Nettoie le tampon pour éviter des erreurs avec fgets
 
                     printf("Entrez le message à écrire :");
                     fgets(message, sizeof(message), stdin);
@@ -110,7 +115,7 @@ int main(void)
             struct couleur couleur9 = {0xA5, 0x2A, 0x2A, 0xFF}; // Marron
             struct couleur couleur10 = {0x80, 0x80, 0x80, 0xFF}; // Gris
             
-
+            // Insertion de chaque couleur en utilisant la fonction implémentée dans liste.c
             insertion(&couleur1, &ma_liste);
             insertion(&couleur2, &ma_liste);
             insertion(&couleur3, &ma_liste);
@@ -122,7 +127,7 @@ int main(void)
             insertion(&couleur9, &ma_liste);
             insertion(&couleur10, &ma_liste);
 
-
+            // Affiche les couleurs en utilisant la fonction implémentée dans liste.c
             printf("Liste des couleurs :\n");
             parcours(&ma_liste);
 

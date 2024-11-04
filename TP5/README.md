@@ -7,7 +7,7 @@
 *
 
 # Difficulté
-*
+* Difficile
 
 # Commentaires
 * 

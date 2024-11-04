@@ -21,10 +21,10 @@ int main(int argc, char *argv[]) {
     int num2 = atoi(argv[3]);    // Convertit argv[3] en entier
     int result;
 
-    // Utilise un switch pour choisir l'opération
+    // Switch en fonction de la valeur de argv[1] (l'opérateur choisi)
     switch (operator) {
         case '+':
-            result = somme(num1, num2); // Remplace par la fonction appropriée de operator.c
+            result = somme(num1, num2); 
             break;
         case '-':
             result = difference(num1, num2);

@@ -23,6 +23,7 @@ int main(){
     struct etudiant etudiant[nb_etudiant];
     char* nom_de_fichier3 = "etudiant.txt";
 
+    // Boucle pour saisir et enregistrer les informations de chaque étudiant
     for(int i = 0; i < nb_etudiant;i++){
 
         printf("nom de l'etudiant %i :", i);
@@ -43,7 +44,7 @@ int main(){
         printf("notes_en_C de l'etudiant %i :", i);
         scanf("%f", &etudiant[i].note.notes_en_C);
         char noteC[20];
-        sprintf(noteC, "%.2f",etudiant[i].note.notes_en_C);
+        sprintf(noteC, "%.2f",etudiant[i].note.notes_en_C); // Conversion en chaîne pour l'écriture
         ecrire_dans_fichier(nom_de_fichier3, noteC);
 
         printf("notes_en_S de l'etudiant %i :", i);
@@ -52,7 +53,7 @@ int main(){
         sprintf(noteS, "%.2f",etudiant[i].note.notes_en_S);
         ecrire_dans_fichier(nom_de_fichier3, noteS);
 
-        ecrire_dans_fichier(nom_de_fichier3, "  ");
+        ecrire_dans_fichier(nom_de_fichier3, "  "); // Séparateur pour chaque étudiant
     }
     
     lire_fichier(nom_de_fichier3);
